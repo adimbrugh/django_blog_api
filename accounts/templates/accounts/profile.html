@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h2>Profile</h2>
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+
+<h3>Edit Profile</h3>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+</form>
+
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock %}
